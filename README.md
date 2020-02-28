@@ -1,2 +1,2 @@
 # Python-Hangman
-Play Hangman in using Python.
+Play Hangman using Python.
