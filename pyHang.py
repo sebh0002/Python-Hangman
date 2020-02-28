@@ -15,11 +15,13 @@ print("The length of the word is", len(wordList))
 while error <=5 and correct != len(wordList):
     letter = input("Enter a letter:")
     
-    #check if letter already guessed
-    if letter in letterList:
+    #checks if letter already guessed and checks for invalid input    
+    while letter in letterList or letter not in alphabet:
         while letter in letterList:
             print("Letter already entered, choose a new letter. Current Guesses are ", letterList)
             letter = input()
+        while letter not in alphabet:
+            letter = input("Invalid input. Enter letter: ")
     letterList.append(letter)  
 
     #initiialize the answerList to underscores (to the length of the chosen word)
