@@ -27,7 +27,7 @@ while error <=5 and correct != len(wordList):
         count = count + 1
         answerList.append("_")
 
-    #checks if animal name contains letter, if so removes _ and replaces with the letter in users' answerList
+    #checks if animal name contains guessed letter, if so removes _ and replaces with the letter in users' answerList
     if letter in wordList:
         while letter in wordList:
             position = wordList.index(letter)
