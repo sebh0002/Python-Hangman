@@ -22,7 +22,7 @@ while error <=5 and correct != len(wordList):
             letter = input()
     letterList.append(letter)  
 
-    #initiialize user the answerList to underscores the len of the animal word
+    #initiialize the answerList to underscores (to the length of the chosen word)
     while count < len(wordList):
         count = count + 1
         answerList.append("_")
