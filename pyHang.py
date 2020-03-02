@@ -21,15 +21,16 @@ while count < len(wordList):
 
 #main loop
 while error <=5 and correct != len(wordList):
-    letter = input("Enter a letter:")
+    letter = input("Enter a letter: ").lower()
+   
     
-    #checks for letter already guessed and invalid input    
+    #checks if letter already guessed and for invalid input    
     while letter in letterList or letter not in alphabet:
         while letter in letterList:
-            print("Letter already entered, choose a new letter. Current Guesses are ", letterList)
-            letter = input()
+            print("Letter already entered, current Guesses are ", letterList)
+            letter = input("Enter new letter: ").lower()
         while letter not in alphabet:
-            letter = input("Invalid input. Enter letter: ")
+            letter = input("Invalid input. Enter letter: ").lower()
     letterList.append(letter)  
 
     #checks if correct guess, if so removes _ and replaces with the letter in users answer (answerList)
