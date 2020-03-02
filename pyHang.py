@@ -9,13 +9,21 @@ words = ['cow', 'horse', 'deer', 'elephant', 'lion', 'tiger', 'baboon', 'donkey'
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o" ,"p", "q", "r", "s", "t", "u" ,"v", "w," "x", "y", "z"]
 print("Welcome to Hangman! Guess the mystery word with less than 6 mistakes!")
 x = int(input("Please enter an integer number (>=0 and <10) to choose the word in the list:"))
+
 #selected animal added to wordList
 wordList.extend(words[x])
 print("The length of the word is", len(wordList))
+
+#initiialize user answerList to underscores 
+while count < len(wordList):
+    count = count + 1
+    answerList.append("_")
+
+#main loop
 while error <=5 and correct != len(wordList):
     letter = input("Enter a letter:")
     
-    #checks if letter already guessed and checks for invalid input    
+    #checks for letter already guessed and invalid input    
     while letter in letterList or letter not in alphabet:
         while letter in letterList:
             print("Letter already entered, choose a new letter. Current Guesses are ", letterList)
@@ -24,12 +32,7 @@ while error <=5 and correct != len(wordList):
             letter = input("Invalid input. Enter letter: ")
     letterList.append(letter)  
 
-    #initiialize the answerList to underscores (to the length of the chosen word)
-    while count < len(wordList):
-        count = count + 1
-        answerList.append("_")
-
-    #checks if animal name contains guessed letter, if so removes _ and replaces with the letter in users' answerList
+    #checks if correct guess, if so removes _ and replaces with the letter in users answer (answerList)
     if letter in wordList:
         while letter in wordList:
             position = wordList.index(letter)
@@ -39,8 +42,8 @@ while error <=5 and correct != len(wordList):
             wordList.insert(position, "_")            
             print(answerList)
             correct = correct + 1
-            
         print("The letter is in the word. Letters matched so far:", correct)
+        
     else:
         error = error + 1
         if error >= 1:
